@@ -4,7 +4,7 @@ import Image from './Image'
 import InfiniteScroll from 'react-infinite-scroll-component';
 import {splitArray} from '../utils';
 
-export class Images extends Component {
+export class Home extends Component {
   constructor () {
     super()
 
@@ -25,6 +25,7 @@ export class Images extends Component {
     window.addEventListener("resize", this.resizeScreen);
     const { count } = this.state;
 
+    // Getting first set of images
     axios
       .get(`${this.state.url}&image_type?all&page=1&per_page=20&page=1`)
       .then(res => this.setState({ images: res.data.hits, count: 1 + count }))
@@ -34,6 +35,9 @@ export class Images extends Component {
     window.removeEventListener("resize", this.resizeScreen);
   }
 
+  /*
+    Set column count by dividing main container width by minimum column width
+  */
   resizeScreen = () => {
     let width = this.imageContainer.current.offsetWidth;
     const count = Math.floor(width / 310);
@@ -54,6 +58,8 @@ export class Images extends Component {
 
   render () {
     const { images } = this.state;
+    
+    //Distribute image array data between column to get uneven placing of images
     var data = splitArray(images, this.state.columnCount);
 
     return (
@@ -78,4 +84,4 @@ export class Images extends Component {
 
 }
 
-export default Images
+export default Home

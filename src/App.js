@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import Images from './components/Images';
+import Home from './components/Home';
 import ImageDetails from './components/ImageDetails';
 import './App.css';
-// import 'bootstrap/dist/css/bootstrap.css'
 import {
   BrowserRouter as Router,
   Switch,
@@ -14,10 +13,11 @@ class App extends Component {
     return (
       <div id="root">
         <div className="container">
+          {/* TODO: move this block to separate file */}
             <Router>
               <Switch>
                 <Route exact path="/">
-                  <Images />
+                  <Home />
                 </Route>
                 <Route path="/image/:id">
                   <ImageDetails />

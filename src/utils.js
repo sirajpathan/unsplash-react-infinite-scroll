@@ -1,3 +1,6 @@
+/*
+    Function to distribute data between multiple arrays to display data in grid columns
+*/
 export function splitArray (arr, len) {
     let data = [];
     for(var i = 0; i< len; i++) {

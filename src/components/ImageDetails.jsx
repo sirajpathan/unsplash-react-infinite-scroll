@@ -5,7 +5,9 @@ import Image from './Image';
 import useResizeEvent from '../hooks/windowResize';
 import Loader from './Loader';
 
-
+/*
+    Page to display full width image along with its details
+*/
 function ImageDetails({ match: { params } }) {
 
     const [image, setImage] = useState({ tags: '' });
